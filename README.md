@@ -1,11 +1,15 @@
 # Guía
 
+Aplicación web para la gestión de inventario elaborado con Laravel y Vue.js.
+
+![Captura de pantalla de la aplicación web](/screenshot.png)
+
 La siguiente guía está destinada para los equipos que emplean el sistema operativo _Windows 10_.
 
 ## 1. Requisitos previos
 
 1.1 Tener instalado un servidor local MySQL.\
-1.1.1 Haber creado una base de datos __vacía__ con nombre _inventario_.\
+1.1.1 Haber creado una base de datos **vacía** con nombre _inventario_.\
 1.2 Tener instalado PHP 8.0.2.\
 1.3 Tener instalado [Composer](https://getcomposer.org/Composer-Setup.exe).\
 1.4 Tener instalado [Node.js](https://nodejs.org/es/download/), versión LTS.\
@@ -35,7 +39,6 @@ La siguiente guía está destinada para los equipos que emplean el sistema opera
 2.18 Ejecuta la siguiente línea: `php artisan key:generate`.\
 2.19 Ejecuta la siguiente línea y espera a que culmine el proceso: `php artisan migrate --seed`.\
 2.20 Ejecuta la siguiente línea: `php artisan storage:link`.
-
 
 ## 3. Poner en marcha el proyecto en desarrollo
 
