@@ -1,10 +1,8 @@
 # Guía
 
-Aplicación web para la gestión de inventario elaborado con Laravel y Vue.js.
+Aplicación web para la gestión de inventario elaborado con Laravel y Vue.js. La siguiente guía está destinada para los equipos que emplean el sistema operativo _Windows 10_.
 
 ![Captura de pantalla de la aplicación web](/screenshot.png)
-
-La siguiente guía está destinada para los equipos que emplean el sistema operativo _Windows 10_.
 
 ## 1. Requisitos previos
 
