@@ -19,7 +19,7 @@ RECAPTCHA_SECRETE_KEY=CLAVE_SECRETA
 5. Abre el terminal y ejecuta lo siguiente para instalar y poner en marcha los contenedores:
 
 ```
-docker compose up -d --build
+docker compose up --watch --build
 ```
 
 6. Abre el navegador web y visita la dirección `http://localhost/` para visualizar la aplicación.
