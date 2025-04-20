@@ -22,7 +22,7 @@ class SesionController extends Controller
         // visite este enlace: https://laravel.com/docs/9.x/validation#available-validation-rules
         $solicitud->validate([
             'recaptcha' => 'required|recaptcha',
-            'correo' => 'required|string|email:rfc,dns',
+            'correo' => 'required|string|email:rfc',
             'contrasena' => 'required|string'
         ]);
         

@@ -36,7 +36,7 @@ class UsuarioController extends Controller
             'segundo_nombre' => 'nullable|string|max:255',
             'primer_apellido' => 'nullable|string|required_with:segundo_apellido|max:255',
             'segundo_apellido' => 'nullable|string|max:255',
-            'correo' => 'required|string|email:rfc,dns|unique:usuarios,correo|max:255',
+            'correo' => 'required|string|email:rfc|unique:usuarios,correo|max:255',
             'tipo_identificacion' => 'nullable|string|in:cc,ce,ti,rc,di',
             'numero_identificacion' => 'nullable|string|max:255',
             'genero' => 'nullable|string|in:m,h,n,u',
@@ -288,7 +288,7 @@ class UsuarioController extends Controller
                         'primer_apellido' => 'nullable|string|required_with:segundo_apellido|max:255',
                         'segundo_apellido' => 'nullable|string|max:255',
                         'genero' => 'nullable|string|in:m,h,n,u',
-                        'correo' => [ 'required', 'string', 'email:rfc,dns', 'unique:usuarios,correo,'. $usuario->id .',id', 'max:255' ],
+                        'correo' => [ 'required', 'string', 'email:rfc', 'unique:usuarios,correo,'. $usuario->id .',id', 'max:255' ],
                         'contrasena' => [ 'nullable', 'string', new Contrasena, 'confirmed', 'max:72' ],
                         'tipo_identificacion' => 'nullable|string|in:cc,ce,ti,rc,di',
                         'numero_identificacion' => 'nullable|string|max:255',
@@ -482,7 +482,7 @@ class UsuarioController extends Controller
             // visite este enlace: https://laravel.com/docs/9.x/validation#available-validation-rules
             $solicitud->validate([
                 'recaptcha' => 'required|recaptcha',
-                'correo' => 'required|string|email:rfc,dns'
+                'correo' => 'required|string|email:rfc'
             ]);
             
             // Obtiene el registro el usuario con el correo proporcionado por el cliente.
@@ -560,7 +560,7 @@ class UsuarioController extends Controller
         // Para más información sobre las reglas de validación de Laravel,
         // visite este enlace: https://laravel.com/docs/9.x/validation#available-validation-rules
         $solicitud->validate([
-            'email' => 'required|string|email:rfc,dns',
+            'email' => 'required|string|email:rfc',
             'contrasena' => [ 'required', 'string', new Contrasena, 'confirmed', 'max:72' ]
         ]);
         

@@ -20,7 +20,7 @@
                 <font-awesome-icon icon="envelope"/>
             </div>
             <div class="seccion recaptcha">
-                <vue-recaptcha sitekey="RECAPTCHA_SITE_KEY" @verify="verificarReCaptcha"></vue-recaptcha>
+                <vue-recaptcha :sitekey="recaptchaSiteKey" @verify="verificarReCaptcha"></vue-recaptcha>
             </div>
         </template>
         <template v-else>
@@ -60,7 +60,8 @@
                 correo: '',
                 contrasena: '',
                 confirmacion: '',
-                recaptcha: null
+                recaptcha: null,
+                recaptchaSiteKey: process.env.MIX_RECAPTCHA_SITE_KEY
             }
         },
         computed: {

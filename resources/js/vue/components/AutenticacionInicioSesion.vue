@@ -16,7 +16,7 @@
             <label for="mostrar-contrasena" class="font-9">Mostrar contraseña</label>
         </div>
         <div class="seccion recaptcha">
-            <vue-recaptcha sitekey="RECAPTCHA_SITE_KEY" ref="recaptcha" @verify="verificarReCaptcha"></vue-recaptcha>
+            <vue-recaptcha :sitekey="recaptchaSiteKey" ref="recaptcha" @verify="verificarReCaptcha"></vue-recaptcha>
         </div>
         <div class="seccion boton">
             <button type="submit" class="boton-verde">Iniciar sesión</button>
@@ -48,7 +48,8 @@
                 correo: '',
                 contrasena: '',
                 visibilidadContrasena: false,
-                recaptcha: null
+                recaptcha: null,
+                recaptchaSiteKey: process.env.MIX_RECAPTCHA_SITE_KEY
             }
         },
         methods: {
