@@ -39,7 +39,7 @@ Contraseña: `admin@IWAPP#22`
 -   **Unidad**: El objeto en sí. Cada unidad cuenta con un número de serie único.
 -   **Producto**: Conjunto de características comunes que comparten varias unidades, como la marca y el modelo.
 -   **Fabricante**: Entidad que produce las unidades de un producto.
--   **Proveedor**: Entidad que suministra el producto a la empresa. Puede ser el mismo fabricante o un intermediario.
+-   **Proveedor**: Entidad que suministra las unidades a la empresa. Puede ser el mismo fabricante o un intermediario.
 -   **Proyecto**: Destino final donde las unidades serán instaladas o utilizadas.
 
 ### Autenticación
