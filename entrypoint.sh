@@ -16,7 +16,7 @@ php artisan migrate:fresh --seed
 # Crea un enlace simbólico desde public/storage hacia storage/app/public para acceso público a archivos.
 php artisan storage:link
 
-echo "Iniciando Apache. Laravel estará listo en http://localhost/"
+echo "Iniciando Apache. El proyecto web estará disponible en http://localhost/"
 
 # Inicia Apache.
 apache2-foreground
