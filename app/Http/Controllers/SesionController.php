@@ -20,12 +20,18 @@ class SesionController extends Controller
         // Valida los campos proporcionados por el cliente.
         // Para más información sobre las reglas de validación de Laravel,
         // visite este enlace: https://laravel.com/docs/9.x/validation#available-validation-rules
-        $solicitud->validate([
-            'recaptcha' => 'required|recaptcha',
+        $rules = [
             'correo' => 'required|string|email:rfc',
             'contrasena' => 'required|string'
-        ]);
+        ];
         
+        // Solo agrega la regla de reCaptcha si se ha proporcionado la clave secreta.
+        if (config('recaptcha.api_secret_key')) {
+            $rules['recaptcha'] = 'required|recaptcha';
+        }
+
+        $solicitud->validate($rules);
+
         // Obtiene el registro del usuario con el correo proporcionado por el cliente.
         $usuario = Usuario::where('correo', $solicitud->correo)->first();
         

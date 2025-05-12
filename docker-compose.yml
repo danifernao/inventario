@@ -13,8 +13,6 @@ services:
       - database
     ports:
       - 80:80
-    networks:
-      - laravel
 
   node:
     build:
@@ -29,8 +27,6 @@ services:
       - 8080:8080
     depends_on:
       - app
-    networks:
-      - laravel
 
   database:
     image: mysql:8.0
@@ -39,10 +35,6 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
-    ports:
-      - 3306:3306
-    networks:
-      - laravel
 
   phpmyadmin:
     image: phpmyadmin:5.1
@@ -56,19 +48,8 @@ services:
       - 8888:80
     depends_on:
       - database
-    networks:
-      - laravel
 
   mailhog:
     image: mailhog/mailhog
-    logging:
-      driver: 'none'
     ports:
-      - 1025:1025
       - 8025:8025
-    networks:
-      - laravel
-
-networks:
-  laravel:
-    driver: bridge

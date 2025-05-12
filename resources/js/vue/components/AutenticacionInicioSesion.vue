@@ -15,7 +15,7 @@
             <input type="checkbox" id="mostrar-contrasena" v-model="visibilidadContrasena" @change="mostrarContrasena">
             <label for="mostrar-contrasena" class="font-9">Mostrar contraseña</label>
         </div>
-        <div class="seccion recaptcha">
+        <div class="seccion recaptcha" v-if="recaptchaSiteKey">
             <vue-recaptcha :sitekey="recaptchaSiteKey" ref="recaptcha" @verify="verificarReCaptcha"></vue-recaptcha>
         </div>
         <div class="seccion boton">
@@ -82,7 +82,9 @@
                     this.estado = 'error'
                     this.respuesta = error.response ? error.response.data : { message: 'Error no identificado.' }
                     this.contrasena = ''
-                    this.$refs.recaptcha.reset()
+                    if (this.$refs.recaptcha) {
+                      this.$refs.recaptcha.reset()
+                    }
                     this.$refs.formulario.classList.remove('inhabilitado')
                 })
             }

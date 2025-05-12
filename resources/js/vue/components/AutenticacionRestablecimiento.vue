@@ -19,8 +19,8 @@
                 <input type="email" placeholder="Correo electrónico" required v-model="correo"/>
                 <font-awesome-icon icon="envelope"/>
             </div>
-            <div class="seccion recaptcha">
-                <vue-recaptcha :sitekey="recaptchaSiteKey" @verify="verificarReCaptcha"></vue-recaptcha>
+            <div class="seccion recaptcha" v-if="recaptchaSiteKey">
+                <vue-recaptcha :sitekey="recaptchaSiteKey" ref="recaptcha" @verify="verificarReCaptcha"></vue-recaptcha>
             </div>
         </template>
         <template v-else>
@@ -93,6 +93,9 @@
                     .catch(error => {
                         this.estado = 'error'
                         this.respuesta = error.response ? error.response.data : { message: 'Error no identificado.' }
+                        if (this.$refs.recaptcha) {
+                          this.$refs.recaptcha.reset()
+                        }
                         this.$refs.formulario.classList.remove('inhabilitado')
                     })
                 } else {

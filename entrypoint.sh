@@ -7,11 +7,6 @@ set -e
 # Genera la clave de la aplicación.
 php artisan key:generate
 
-# Limpia la configuraciión cacheada de Laravel para evitar conflictos.
-php artisan cache:clear
-php artisan config:clear
-php artisan config:cache
-
 # Espera a que MySQL esté listo.
 dockerize -wait tcp://database:3306 -timeout 60s
 
@@ -20,6 +15,8 @@ php artisan migrate:fresh --seed
 
 # Crea un enlace simbólico desde public/storage hacia storage/app/public para acceso público a archivos.
 php artisan storage:link
+
+echo "Iniciando Apache. Laravel estará listo en http://localhost/"
 
 # Inicia Apache.
 apache2-foreground
