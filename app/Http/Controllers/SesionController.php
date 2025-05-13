@@ -25,7 +25,7 @@ class SesionController extends Controller
             'contrasena' => 'required|string'
         ];
         
-        // Solo agrega la regla de reCaptcha si se ha proporcionado la clave secreta.
+        // Solo agrega la regla de reCAPTCHA si se ha proporcionado la clave secreta.
         if (config('recaptcha.api_secret_key')) {
             $rules['recaptcha'] = 'required|recaptcha';
         }

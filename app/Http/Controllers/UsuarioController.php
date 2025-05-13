@@ -484,7 +484,7 @@ class UsuarioController extends Controller
                 'correo' => 'required|string|email:rfc'
             ];
 
-            // Solo agrega la regla de reCaptcha si se ha proporcionado la clave secreta.
+            // Solo agrega la regla de reCAPTCHA si se ha proporcionado la clave secreta.
             if (config('recaptcha.api_secret_key')) {
                 $rules['recaptcha'] = 'required|recaptcha';
             }

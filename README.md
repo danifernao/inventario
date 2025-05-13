@@ -8,8 +8,8 @@ Aplicación web para la gestión de inventario elaborado con Laravel y Vue.js.
 
 1. Asegúrate de tener instalado Docker y su servicio en ejecución.
 2. Descarga o clona este repositorio e ingresa a él.
-3. Renombra el archivo .env.example a .env.
-4. Abre el archivo .env, ubícate en las líneas `RECAPTCHA_SITE_KEY` y `RECAPTCHA_SECRET_KEY` y escribe al lado las claves de tu reCAPTCHA:
+3. Renombra el archivo `.env.example` a `.env`.
+4. Opcional. Abre el archivo `.env`, ubícate en las líneas `RECAPTCHA_SITE_KEY` y `RECAPTCHA_SECRET_KEY` y escribe al lado las claves de tu reCAPTCHA:
 
 ```
 RECAPTCHA_SITE_KEY=CLAVE_SITIO
