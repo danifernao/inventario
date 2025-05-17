@@ -1,41 +1,35 @@
 services:
-  app:
+  laravel:
     build:
       context: .
-      dockerfile: Dockerfile.app
-    working_dir: /var/www
+      dockerfile: Dockerfile.laravel
     develop:
       watch:
         - path: ./
-          target: /var/www
+          target: /var/www/html
           action: sync          
     depends_on:
-      - database
+      - mysql
     ports:
       - 80:80
-
   node:
     build:
       context: .
       dockerfile: Dockerfile.node
-    working_dir: /var/www
-    tty: true
     volumes:
-      - ./:/var/www
-      - /var/www/node_modules
+      - ./:/var/www/html
+      - /var/www/html/node_modules
     ports:
       - 8080:8080
     depends_on:
-      - app
-
-  database:
+      - laravel
+  mysql:
     image: mysql:8.0
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
-
   phpmyadmin:
     image: phpmyadmin:5.1
     environment:
@@ -47,8 +41,7 @@ services:
     ports:
       - 8888:80
     depends_on:
-      - database
-
+      - mysql
   mailhog:
     image: mailhog/mailhog
     ports:

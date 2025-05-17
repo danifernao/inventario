@@ -2,7 +2,7 @@
 FROM node:23-alpine
 
 # Establece el directorio de trabajo dentro del contenedor.
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 # Copia los archivos package.json y package-lock.json (si existe) al contenedor.
 COPY package*.json ./
@@ -13,5 +13,5 @@ RUN npm install
 # Copia el resto de los archivos del proyecto al contenedor.
 COPY . .
 
-# Comando por defecto que se ejecuta al iniciar el contenedor.
+# Ejecuta el servidor de desarrollo con recarga en caliente.
 CMD ["npm", "run", "hot"]

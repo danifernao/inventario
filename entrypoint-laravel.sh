@@ -1,14 +1,14 @@
 #!/bin/bash
-# Indica que el script se debe ejecutar con Bash.
+# Ejecuta el script con Bash.
 
 set -e
-# Hace que el script se detenga si ocurre cualquier error.
+# Detiene la ejecución del script si cualquier comando falla.
 
 # Genera la clave de la aplicación.
 php artisan key:generate
 
 # Espera a que MySQL esté listo.
-dockerize -wait tcp://database:3306 -timeout 60s
+dockerize -wait tcp://mysql:3306 -timeout 60s
 
 # Destruye las tablas existentes y ejecuta las migraciones.
 php artisan migrate:fresh --seed
